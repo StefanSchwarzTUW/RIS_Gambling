@@ -15,4 +15,4 @@ A trained agent for 3 base stations, 2 operators, 10 users, 20 RISs and 1000 rec
 Run main file RIS_bidding_geometric.py to test this agent
 You may train new agents for other settings by activating "retrain" in RIS_bidding_geometric.py
 
-This project is licensed under the Creative Commons Attribution 4.0 International License (CC BY-NC 4.0). See the LICENSE file for details.
+This project is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See the LICENSE file for details.
