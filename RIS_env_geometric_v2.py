@@ -3,11 +3,14 @@
 Created on Thu Sep 21 09:33:52 2023
 
 @author: Stefan Schwarz
+
+This is the environment for multi-agent training
+
 """
 
 import functools
 
-import gymnasium
+import gymnasium # make sure to install gymnasium in your environment
 from gymnasium import spaces
 
 from pettingzoo import ParallelEnv

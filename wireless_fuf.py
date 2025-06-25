@@ -1,5 +1,5 @@
 """
-Frequently Used Function for Wireless Environment
+Frequently Used Function for Wireless Environments
 """
 
 """ uniform placement of nodes within a region of interest """

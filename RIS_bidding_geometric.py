@@ -3,11 +3,14 @@
 Created on Thu Sep 21 10:47:15 2023
 
 @author: Stefan Schwarz
+
+This is the main file for running simulations, training agents and evaluating the performance
+
 """
 # !pip install stable-baselines3[extra]
 
 import numpy as np
-import RIS_env_geometric_v2
+import RIS_env_geometric_v2  # multi-agent environment for RIS competition
 # import os
 
 import supersuit as ss
@@ -20,7 +23,7 @@ import pickle
 
 from stable_baselines3 import PPO #, A2C
 
-from wireless_fuf import Gauss_channel, RIS_alloc_response
+from wireless_fuf import Gauss_channel, RIS_alloc_response # importing channels and RIS responses
 
 
 """ Basic parameters of the environment; more are defined in the RIS_Competition module """
@@ -33,9 +36,9 @@ N_OP = 2 # number of operators
 ROI_size = np.array([[-10,-10],[10,10]])*5 # size of ROI
 budget = 1*np.ones(N_OP) # budget for bidding
 # budget[0] = 8 # use this to vary the budget of operator 1
-retrain = True # activate to retrain the agent
-test = False # activate to test on random environments
-test_MF = False # activate to test impact of microscopic fading
+retrain = False # activate to retrain the agent
+test = True # activate to test on random environments
+test_MF = True # activate to test impact of microscopic fading
 NN = 500 # number of microscopic fading realizations
 K = np.array([1e2,3*1e0])*1e0 # K-factor under LOS/NLOS
 rng1 = np.random.default_rng(1) # random number generator
@@ -47,9 +50,9 @@ Bs = 15e3 # subcarrier bandwidth
 sigma_n2 = 10**((N0 + 10*np.log10(Bs) + F - 30)/10) # noise power
 
 
-f_name = str(N_BS) + 'BS_' + str(N_UE) + 'UE_' + str(N_RIS) + 'RIS_' + str(M_RIS) + 'M' # file name
+f_name = str(N_BS) + 'BS_' + str(N_UE) + 'UE_' + str(N_RIS) + 'RIS_' + str(M_RIS) + 'M' # file name to store results and trained agents
 
-start_time = time.time()
+start_time = time.time() # keep track of simulation time
 
 ######################################################################## 
 """ Get fading channels of direct links """    
@@ -70,7 +73,7 @@ def direct_channel(LOS_UE_BS,pow_ue_bs,BS_UE_assoc):  # indicator for LOS betwee
     return direct_channel_BS_UE
 
 ######################################################################## 
-""" Get SINR of direct-only links """    
+""" Get SINR of direct-only links for benchmarking """    
 ########################################################################
 def get_direct_SINR(direct_signal_BS_UE,BS_UE_assoc): # direct received signals between all BSs and all UEs, association of UEs to BSs
     # calculate SINR of direct links only
