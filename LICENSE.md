@@ -1,4 +1,4 @@
-Creative Commons Attribution-NonCommercial 4.0 International (CC BY 4.0)
+Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 You are free to:
 - Share — copy and redistribute the material in any medium or format
