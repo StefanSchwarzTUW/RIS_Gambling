@@ -8,9 +8,6 @@ from itertools import product
 # import multiprocessing
 
 # from numba import jit
-
-import sys # import from frequently used functions
-
 from wireless_fuf import uniform_placement, regular_noisy_placement, uma_pathloss,  Gauss_channel,  uca_response #, RIS_alloc_response
 # from parfor import parfor
 #import random
