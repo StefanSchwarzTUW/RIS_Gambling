@@ -10,7 +10,7 @@ from itertools import product
 # from numba import jit
 
 import sys # import from frequently used functions
-sys.path.insert(0,'D:/Ass_Prof/Python_Code')
+
 from wireless_fuf import uniform_placement, regular_noisy_placement, uma_pathloss,  Gauss_channel,  uca_response #, RIS_alloc_response
 # from parfor import parfor
 #import random
