@@ -13,6 +13,10 @@ import functools
 import gymnasium # make sure to install gymnasium in your environment
 from gymnasium import spaces
 
+from helper_functions import install_if_missing
+
+# Example usage
+install_if_missing("pettingzoo")
 from pettingzoo import ParallelEnv
 # from pettingzoo.utils import wrappers
 

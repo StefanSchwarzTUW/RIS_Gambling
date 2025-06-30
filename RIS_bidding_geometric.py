@@ -8,19 +8,22 @@ This is the main file for running simulations, training agents and evaluating th
 
 """
 # !pip install stable-baselines3[extra]
-
 import numpy as np
 import RIS_env_geometric_v2  # multi-agent environment for RIS competition
 # import os
 
+from helper_functions import install_if_missing
+
+install_if_missing("supersuit")
 import supersuit as ss
+install_if_missing("statsmodels")
 from statsmodels.distributions.empirical_distribution import ECDF
 import matplotlib.pyplot as pyplt
 
 import time
 
 import pickle
-
+install_if_missing("stable_baselines3")
 from stable_baselines3 import PPO #, A2C
 
 from wireless_fuf import Gauss_channel, RIS_alloc_response # importing channels and RIS responses
@@ -357,7 +360,7 @@ if __name__ == "__main__":
         model = PPO.load(model_name, env=vec_env) 
         observe, infos = env.reset(2) # reset environment
         terminated = False
-        while ~terminated: # determine RIS allocation -- perform auction
+        while not(terminated): # determine RIS allocation -- perform auction
             obs = observe[env.possible_agents[0]]
             for agent in env.possible_agents[1:]:
                 obs = np.stack([obs,observe[agent]])  

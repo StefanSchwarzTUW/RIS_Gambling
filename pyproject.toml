@@ -1,0 +1,20 @@
+[project]
+name = "RIS_Gambling"
+version = "1.0.0"
+description = "Gambling on Reconfigurable Intelligent Surfaces"
+authors = [{ name = "Stefan Schwarz", email = "stefan.schwarz@tuwien.ac.at" }]
+requires-python = "<3.13"
+dependencies = [
+    	"numpy",
+	"supersuit",
+	"statsmodels",
+	"matplotlib",
+	"time",
+	"pickle",
+	"stable_baselines3",
+	
+]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
